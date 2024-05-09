@@ -7,3 +7,21 @@
 .title {
   text-align: center;
 }
+
+.ingredient-list {
+  column-count: 2;
+  column-gap: 1rem;
+  padding-left: 1rem;
+}
+
+@media (max-width: 512px) {
+  .ingredient-list {
+    column-count: 1;
+    column-gap: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+.text-recipe {
+  text-align: justify;
+}

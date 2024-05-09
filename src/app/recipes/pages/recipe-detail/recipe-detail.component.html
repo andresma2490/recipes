@@ -1,5 +1,25 @@
 <div>
-  <img class="img-title" [src]="recipe.strMealThumb" [alt]="recipe.strMeal" />
-  <h1 class="title">{{ recipe.strMeal }}</h1>
-  <p>{{ recipe.strInstructions }}</p>
+  <h1 class="title mb-1">{{ recipe.strMeal }}</h1>
+  <img
+    class="img-title mb-2"
+    [src]="recipe.strMealThumb"
+    [alt]="recipe.strMeal"
+  />
+  <h2 class="mb-1">Ingredients</h2>
+  <ul class="ingredient-list mb-2">
+    @for (ingredient of ingredients; track $index) {
+      <li>{{ ingredient.strIngredient }} - {{ ingredient.strMeasure }}</li>
+    }
+  </ul>
+  <h2 class="mb-1">Instructions</h2>
+  <p class="text-recipe mb-2">{{ recipe.strInstructions }}</p>
+  <iframe
+    class="img-title"
+    [src]="recipe.strYoutube | youtubeEmbed"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
 </div>

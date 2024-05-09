@@ -9,6 +9,7 @@ import {
   RecipeObjList
 } from '../models/recipe';
 import { BehaviorSubject, map } from 'rxjs';
+import { Ingredient } from '../models/ingredient';
 
 @Injectable({
   providedIn: 'root'
@@ -54,5 +55,17 @@ export class RecipesService {
         params
       })
       .pipe(map((res) => res.meals[0]));
+  }
+
+  getIngredients(recipe: Recipe) {
+    const data: Ingredient[] = [];
+    for (let i = 1; i <= 20; i++) {
+      const strIngredient = recipe[`strIngredient${i}` as keyof Recipe];
+      const strMeasure = recipe[`strMeasure${i}` as keyof Recipe];
+      if (strIngredient) {
+        data.push({ strIngredient, strMeasure });
+      }
+    }
+    return data;
   }
 }

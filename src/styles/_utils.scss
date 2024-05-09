@@ -29,3 +29,9 @@
 .text-center {
   text-align: center;
 }
+
+@for $i from 1 through 3 {
+  .mb-#{$i} {
+    margin-bottom: $i * 1rem;
+  }
+}

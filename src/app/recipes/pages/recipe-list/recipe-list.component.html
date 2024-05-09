@@ -7,8 +7,15 @@
   }
 </div>
 
-<div class="recipes-list">
-  @for (recipe of recipes(); track recipe.idMeal) {
-    <app-recipe-card [recipe]="recipe" />
-  }
-</div>
+@if (recipes()) {
+  <div class="recipes-list">
+    @for (recipe of recipes(); track recipe.idMeal) {
+      <app-recipe-card [recipe]="recipe" />
+    }
+  </div>
+} @else {
+  <div class="no-recipes">
+    <h1 class="text-center">Sorry</h1>
+    <p class="text-center">No results were found</p>
+  </div>
+}

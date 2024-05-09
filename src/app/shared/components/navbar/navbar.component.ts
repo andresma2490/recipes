@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime } from 'rxjs';
+import { debounceTime, tap } from 'rxjs';
 import { RecipesService } from '../../../recipes/services/recipes.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,11 +14,22 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent implements OnInit {
   searchControl: FormControl = new FormControl('');
 
-  constructor(private recipesService: RecipesService) {}
+  constructor(
+    private router: Router,
+    private recipesService: RecipesService
+  ) {}
 
   ngOnInit(): void {
     this.searchControl.valueChanges
-      .pipe(debounceTime(900))
+      .pipe(
+        tap(() => {
+          const homeUrl = '/recipes';
+          if (this.router.url !== homeUrl) {
+            this.router.navigateByUrl(homeUrl);
+          }
+        }),
+        debounceTime(700)
+      )
       .subscribe((value) => {
         this.recipesService.searchRecipes({ s: value });
       });

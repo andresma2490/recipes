@@ -1,0 +1,32 @@
+.navbar {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  background: #f6b13f;
+}
+
+.flex-center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  position: relative;
+}
+
+.search__icon {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+.home {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}

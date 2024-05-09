@@ -1,0 +1,10 @@
+<div class="card">
+  <a role="button" [routerLink]="['/recipes', recipe.idMeal]">
+    <img
+      [src]="recipe.strMealThumb"
+      [alt]="recipe.strMeal"
+      class="card__image"
+    />
+    <div class="card__body">{{ recipe.strMeal }}</div>
+  </a>
+</div>

@@ -1,0 +1,12 @@
+.card {
+  background: white;
+  border-radius: 0.3rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card__image {
+  width: 100%;
+  background: #fafafa;
+  object-fit: contain;
+  object-position: bottom;
+}

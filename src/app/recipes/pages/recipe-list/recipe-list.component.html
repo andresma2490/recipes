@@ -1,0 +1,14 @@
+<div class="categories-list">
+  @for (category of categories; track category.idCategory) {
+    <app-category-card
+      [category]="category"
+      (categorySelected)="getRecipesByCategory($event.strCategory)"
+    />
+  }
+</div>
+
+<div class="recipes-list">
+  @for (recipe of recipes(); track recipe.idMeal) {
+    <app-recipe-card [recipe]="recipe" />
+  }
+</div>

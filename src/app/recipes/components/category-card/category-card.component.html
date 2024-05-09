@@ -1,0 +1,8 @@
+<div class="card cursor-pointer" (click)="categorySelected.emit(category)">
+  <img
+    [src]="category.strCategoryThumb"
+    [alt]="category.strCategory"
+    class="card__image"
+  />
+  <div class="card__body">{{ category.strCategory }}</div>
+</div>
